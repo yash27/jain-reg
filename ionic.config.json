@@ -1,0 +1,7 @@
+{
+  "name": "Jain Portal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
