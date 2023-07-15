@@ -1,25 +1,92 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar mode="ios" color="primary">
     <ion-title>
-      Inbox
+      Jain Portal
     </ion-title>
+    <ion-button slot="end">
+      <ion-icon class="adminButton" name="person-circle-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
-  </ion-list>
+  <ion-grid class="contentHeaderGrid">
+    <ion-row>
+      <ion-col>
+        <h2>वेदीप्रतिष्ठा महोत्सव २०२४,परासिया</h2>
+        <div class="contentHeaderImageContainer">
+          <ion-img src="assets/images/bg.jpg" alt="Taaran Taran Chatyaalaya" class="contentHeaderImage"></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="formContentContainer">
+    <ion-grid>
+      <ion-row>
+        <ion-col [size]="getDeviceSize()">
+        </ion-col>
+        <ion-col [size]="getDeviceSize() === 3 ? 6 : 12" class="formContentContainerColumn">
+          <p class="formContentSubDetails" style="margin: 0;">
+            तारण तरण समाज,परासिया द्वारा आयोजित भव्य प्रतिष्ठा महोत्सव में आप सम्मिलित होना चाहते हैं,तो कृपया इस फॉर्म
+            को भरकर आज ही अपना स्थान सुरक्षित करे। ताकी हम इस कार्य को उत्कृष्ट रूप से संयोजित कर सकें।
+          </p>
+          <div class="formContainer">
+            <ion-grid>
+              <ion-row>
+                <ion-col [size]="12">
+                  <ion-item class="formInput">
+                    <ion-input label="पूरा नाम" labelPlacement="floating" placeholder="आपका नाम"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col [size]="12">
+                  <ion-item class="formInput">
+                    <ion-input label="आपका पता शहर के नाम के साथ" labelPlacement="floating"
+                      placeholder="आपका पता"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col [size]="12">
+                  <ion-item class="formInput">
+                    <ion-input type="number" label="आपकी आयु" labelPlacement="floating" placeholder="आयु"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col [size]="12">
+                  <ion-item class="formInput">
+                    <ion-label>क्या आप शोध (सोला) का भोजन ग्रहण करते हैं ?</ion-label>
+                    <ion-select label-placement="floating" interface="popover">
+                      <ion-select-option value="yes">हाँ</ion-select-option>
+                      <ion-select-option value="no">नहीं</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col [size]="12">
+                  <ion-item class="formInput">
+                    <ion-label>क्या आपको सामाजिक आवासीय व्यवस्था चाहिए ?</ion-label>
+                    <ion-select label-placement="floating" interface="popover">
+                      <ion-select-option value="yes">हाँ</ion-select-option>
+                      <ion-select-option value="no">नहीं</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col [size]="12">
+                  <ion-item class="formInput">
+                    <ion-input type="number" label="आपका व्हाट्सएप्प नंबर" labelPlacement="floating" placeholder="आपका व्हाट्सएप्प नंबर लिखिए "></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col [size]="12" class="submitButtonColumn">
+                  <ion-button color="secondary" shape="round">जानकारी जमा करे </ion-button>
+                  <ion-button color="secondary" fill="outline" shape="round">फॉर्म क्लियर करे  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-col>
+        <ion-col [size]="getDeviceSize()"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="footer">
+    <h3>अखिल भारतीय तारण तरण जैन समाज परासिया 2023</h3>
+    <h4>अधिक जानकारी या कोई सुचना सुझाव के लिए संपर्क करे!</h4>
+    <h4>नितिन जैन: +91-9039250241</h4>
+  </div>
 </ion-content>

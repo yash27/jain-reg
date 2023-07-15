@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { IonicModule, RefresherCustomEvent } from '@ionic/angular';
+import { IonicModule, RefresherCustomEvent, Platform } from '@ionic/angular';
 import { MessageComponent } from '../message/message.component';
-
 import { DataService, Message } from '../services/data.service';
 
 @Component({
@@ -14,15 +13,19 @@ import { DataService, Message } from '../services/data.service';
 })
 export class HomePage {
   private data = inject(DataService);
-  constructor() {}
-
-  refresh(ev: any) {
-    setTimeout(() => {
-      (ev as RefresherCustomEvent).detail.complete();
-    }, 3000);
+  private platform = inject(Platform);
+  constructor() {
+    this.getDeviceSize();
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  getDeviceSize(): number {
+    let colSize = 0, width = this.platform.width();
+    if (width > 480 && width < 767) {
+      colSize = 2;
+    } else if (width > 768) {
+      colSize = 3;
+    }
+    return colSize;
   }
+
 }
